@@ -13,6 +13,8 @@ using System.Windows.Navigation;
 
 using Arbaureal.Arcle;
 
+// A test comment to test out commit to the web repo
+
 namespace Arbaureal.Arcle.Views
 {
     public partial class Game : Page
