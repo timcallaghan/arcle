@@ -1,0 +1,34 @@
+﻿<navigation:Page x:Class="Arbaureal.Arcle.Views.Menu" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="Arcle - Main Menu">
+    <Grid x:Name="LayoutRoot" Style="{StaticResource ContentPageGridStyle}">
+        <StackPanel x:Name="MenuButtons" Style="{StaticResource MenuButtonsStackPanelStyle}">
+            <HyperlinkButton x:Name="ButtonNewGame" 
+                             Style="{StaticResource LinkStyle}" 
+                             Content="New Game" 
+                             NavigateUri="/Game" />
+            <HyperlinkButton x:Name="ButtonHowToPlay" 
+                             Style="{StaticResource LinkStyle}" 
+                             Content="How To Play" 
+                             NavigateUri="/HowToPlay" />
+            <HyperlinkButton x:Name="ButtonHighScores" 
+                             Style="{StaticResource LinkStyle}" 
+                             Content="High Scores" 
+                             NavigateUri="/HighScores" />
+            <HyperlinkButton x:Name="ButtonCredits" 
+                             Style="{StaticResource LinkStyle}" 
+                             Content="Credits" 
+                             NavigateUri="/Credits" />
+        </StackPanel>
+
+        <MediaElement x:Name="MainMenuLoop" 
+                      Source="/Arcle;component/Sounds/main_menu_loop.mp3" 
+                      MediaEnded="MainMenuLoop_MediaEnded"></MediaElement>
+    </Grid>
+</navigation:Page>
