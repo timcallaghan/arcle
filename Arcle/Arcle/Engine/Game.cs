@@ -27,6 +27,10 @@ namespace Arbaureal.Arcle.Engine
         private List<UnitBlock> m_SettledBlocks;
         private NavigationService m_NavigationService;
         private YesNoPopup m_QuitDialog;
+        private int m_Score;
+
+        public delegate void ScoreUpdateHandler(object sender, int nScore);
+        public event ScoreUpdateHandler ScoreUpdateEvent;
 
         public Game(Canvas gameSurface, Panel LayoutRoot)
         {
@@ -57,6 +61,8 @@ namespace Arbaureal.Arcle.Engine
             m_QuitDialog = new YesNoPopup();
             m_QuitDialog.Title = "Quit Current Game?";
             m_QuitDialog.Closed += new EventHandler(quitDialog_Closed);
+
+            m_Score = 0;
         }
 
         public NavigationService NavigationService
@@ -69,12 +75,25 @@ namespace Arbaureal.Arcle.Engine
 
         public void StartGame()
         {
+            m_Score = 0;
             m_GameLoop.Start();
         }
 
         public void StopGame()
         {
             m_GameLoop.Stop();
+
+            // Transition to high score table
+        }
+
+        public void PauseGame()
+        {
+            m_GameLoop.Stop();
+        }
+
+        public void ResumeGame()
+        {
+            m_GameLoop.Start();
         }
 
         void gameLoop_Update(object sender, TimeSpan elapsed)
@@ -109,6 +128,7 @@ namespace Arbaureal.Arcle.Engine
         void ClearCompletedRows()
         {
             List<int> listBlockIndices = new List<int>(Dimensions.NumberOfUnitsPerCircle);
+            int nRowsCompleted = 0;
             for (int nRadius = Dimensions.InnerRadius; nRadius < Dimensions.OuterRadius; nRadius += Dimensions.SegmentWidth)
             {
                 listBlockIndices.Clear();
@@ -147,6 +167,7 @@ namespace Arbaureal.Arcle.Engine
 
                 if (fHasCompleteRow)
                 {
+                    ++nRowsCompleted;
                     listBlockIndices.Sort();
 
                     for (int nIndexIntoArray = listBlockIndices.Count - 1; nIndexIntoArray >= 0; --nIndexIntoArray)
@@ -165,6 +186,18 @@ namespace Arbaureal.Arcle.Engine
                         }
                     }
                 }
+            }
+
+            UpdateScore(nRowsCompleted);
+        }
+
+        private void UpdateScore(int nRowsCompleted)
+        {
+            m_Score += nRowsCompleted;
+
+            if (ScoreUpdateEvent != null)
+            {
+                ScoreUpdateEvent(this, m_Score);
             }
         }
 
@@ -289,8 +322,8 @@ namespace Arbaureal.Arcle.Engine
                 }
             }
             else if (e.Key == Key.Escape)
-            {                    
-                m_GameLoop.Stop();                   
+            {
+                PauseGame();                 
                 m_QuitDialog.Show();
             }
         }
@@ -303,7 +336,7 @@ namespace Arbaureal.Arcle.Engine
             }
             else
             {
-                m_GameLoop.Start();
+                ResumeGame();                
             }
         } 
     }

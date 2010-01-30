@@ -25,6 +25,13 @@ namespace Arbaureal.Arcle.Views
 
             m_Game = new Engine.Game(gameSurface, LayoutRoot);
             LayoutRoot.SizeChanged += new SizeChangedEventHandler(LayoutRoot_SizeChanged);
+            m_Game.ScoreUpdateEvent += new Engine.Game.ScoreUpdateHandler(ScoreUpdateHandler);
+            ScoreText.Text = "0";
+        }
+
+        void ScoreUpdateHandler(object sender, int nScore)
+        {
+            ScoreText.Text = nScore.ToString();
         }
 
         void LayoutRoot_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -71,17 +78,17 @@ namespace Arbaureal.Arcle.Views
 
         void Page_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            m_Game.StartGame();
+            m_Game.ResumeGame();
         }
 
         void Page_LostFocus(object sender, RoutedEventArgs e)
         {
-            m_Game.StopGame();
+            m_Game.PauseGame();
         }
 
         void Page_GotFocus(object sender, RoutedEventArgs e)
         {
-            m_Game.StartGame();
+            m_Game.ResumeGame();
         }
     }
 }

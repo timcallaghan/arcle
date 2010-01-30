@@ -16,7 +16,7 @@
                     <DoubleAnimation
                       Storyboard.TargetName="ArcleText"
                       Storyboard.TargetProperty="Opacity"
-                      From="1.0" To="0.25" Duration="0:0:2" 
+                      From="1.0" To="0.5" Duration="0:0:2" 
                       AutoReverse="True" 
                       RepeatBehavior="Forever" />
                 </Storyboard>
