@@ -23,7 +23,20 @@ namespace Arbaureal.Arcle.Views
         // Executes when the user navigates to this page.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            App currentApp = (App)Application.Current;
+            currentApp.RootVisual.GotFocus += new RoutedEventHandler(Page_GotFocus);
         }
 
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            // Remove all event handlers assigned at the Frame level
+            App.Current.RootVisual.GotFocus -= new RoutedEventHandler(Page_GotFocus);
+            base.OnNavigatedFrom(e);
+        }
+
+        void Page_GotFocus(object sender, RoutedEventArgs e)
+        {
+            ButtonMainMenu.Focus();
+        }
     }
 }

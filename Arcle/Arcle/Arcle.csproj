@@ -162,6 +162,19 @@
   <ItemGroup>
     <Resource Include="Sounds\main_menu_loop.mp3" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MediaParsers\MediaParsers.csproj">
+      <Project>{4354547C-0008-4D2A-8644-F2ACAC9DCC85}</Project>
+      <Name>MediaParsers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mp3MediaStreamSource\Mp3MediaStreamSource.csproj">
+      <Project>{32CC19AF-0340-48BB-AB87-11B49287240E}</Project>
+      <Name>Mp3MediaStreamSource</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ArcleTile.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\v3.0\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

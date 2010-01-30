@@ -8,6 +8,26 @@
            d:DesignWidth="640" d:DesignHeight="480"
            Title="Arcle - Main Menu">
     <Grid x:Name="LayoutRoot" Style="{StaticResource ContentPageGridStyle}">
+
+        <StackPanel Style="{StaticResource ArcleTextStackPanelStyle}">
+            <StackPanel.Resources>
+                <!-- Animates the rectangle's opacity. -->
+                <Storyboard x:Name="ArcleTextAnimation">
+                    <DoubleAnimation
+                      Storyboard.TargetName="ArcleText"
+                      Storyboard.TargetProperty="Opacity"
+                      From="1.0" To="0.25" Duration="0:0:2" 
+                      AutoReverse="True" 
+                      RepeatBehavior="Forever" />
+                </Storyboard>
+            </StackPanel.Resources>
+            <TextBlock x:Name="ArcleText" Text="ARCLE" FontSize="150" FontWeight="ExtraBlack">
+                <TextBlock.Foreground>
+                    <ImageBrush ImageSource="/Arcle;component/Images/ArcleTile.jpg"/>
+                </TextBlock.Foreground>
+            </TextBlock>            
+        </StackPanel>
+
         <StackPanel x:Name="MenuButtons" Style="{StaticResource MenuButtonsStackPanelStyle}">
             <HyperlinkButton x:Name="ButtonNewGame" 
                              Style="{StaticResource LinkStyle}" 
@@ -27,8 +47,6 @@
                              NavigateUri="/Credits" />
         </StackPanel>
 
-        <MediaElement x:Name="MainMenuLoop" 
-                      Source="/Arcle;component/Sounds/main_menu_loop.mp3" 
-                      MediaEnded="MainMenuLoop_MediaEnded"></MediaElement>
+        <MediaElement x:Name="MainMenuLoop"></MediaElement>
     </Grid>
 </navigation:Page>

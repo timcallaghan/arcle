@@ -42,13 +42,16 @@ namespace Arbaureal.Arcle.Views
         // Executes when the user navigates to this page.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            App currentApp = (App)Application.Current;
+            currentApp.StopMainMenuMusic();
+
             m_Game.NavigationService = NavigationService;
 
             // Attach event handlers at the frame level
-            App.Current.RootVisual.GotFocus += new RoutedEventHandler(Page_GotFocus);
-            App.Current.RootVisual.LostFocus += new RoutedEventHandler(Page_LostFocus);
-            App.Current.RootVisual.MouseLeftButtonDown += new MouseButtonEventHandler(Page_MouseLeftButtonDown);
-            App.Current.RootVisual.KeyDown += new KeyEventHandler(m_Game.KeyDownEventHandler);
+            currentApp.RootVisual.GotFocus += new RoutedEventHandler(Page_GotFocus);
+            currentApp.RootVisual.LostFocus += new RoutedEventHandler(Page_LostFocus);
+            currentApp.RootVisual.MouseLeftButtonDown += new MouseButtonEventHandler(Page_MouseLeftButtonDown);
+            currentApp.RootVisual.KeyDown += new KeyEventHandler(m_Game.KeyDownEventHandler);
 
             m_Game.StartGame();
         }
