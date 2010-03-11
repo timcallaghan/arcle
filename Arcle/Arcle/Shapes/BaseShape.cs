@@ -139,6 +139,7 @@ namespace Arbaureal.Arcle.Shapes
             foreach (UnitBlock block in m_BlockArray)
             {
                 gameSurface.Children.Add(block);
+                block.InitStoryBoard(gameSurface);
             }
         }
 

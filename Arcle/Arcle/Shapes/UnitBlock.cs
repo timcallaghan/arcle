@@ -19,6 +19,9 @@ namespace Arbaureal.Arcle.Shapes
         private TranslateTransform m_translateTransform;
         private ScaleTransform m_scaleTransform;
 
+        public Storyboard m_StoryBoard;
+        private DoubleAnimation m_DoubleAnimation;
+
         int m_currentInnerRadius;
 
         public int Radius
@@ -91,6 +94,27 @@ namespace Arbaureal.Arcle.Shapes
                     startPoint,
                     endPoint
                 );
+        }
+
+        public void InitStoryBoard(Canvas gameSurface)
+        {
+            m_StoryBoard = new Storyboard();
+            m_DoubleAnimation = new DoubleAnimation();
+            m_DoubleAnimation.From = 1.0;
+            m_DoubleAnimation.To = 0.1;
+            Duration duration = new Duration(new TimeSpan(0, 0, 0, 0, 500));
+            m_DoubleAnimation.Duration = duration;
+            m_DoubleAnimation.AutoReverse = true;
+
+            m_StoryBoard.Duration = duration;
+            m_StoryBoard.AutoReverse = true;
+            m_StoryBoard.RepeatBehavior = RepeatBehavior.Forever;
+            m_StoryBoard.Children.Add(m_DoubleAnimation);
+            Storyboard.SetTarget(m_DoubleAnimation, this.Content);
+            Storyboard.SetTargetProperty(m_DoubleAnimation, new PropertyPath("(Opacity)"));
+
+            gameSurface.Resources.Add(Guid.NewGuid().ToString(), m_StoryBoard);
+            m_StoryBoard.Begin();
         }
 
         private UnitBlock()
@@ -172,7 +196,7 @@ namespace Arbaureal.Arcle.Shapes
             path.Fill = new SolidColorBrush(fillColour);
             path.Data = pathGeom;
 
-            this.Content = path;        
+            this.Content = path;   
         }
 
         public void RotateLeft()
