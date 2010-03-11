@@ -13,51 +13,73 @@ namespace Arbaureal.Arcle.Shapes
 {
     public class StraightShape : BaseShape
     {
+
+        public StraightShape(bool fInitialise, int nMoveLeft, int nMoveIn)
+        {
+            if (fInitialise)
+            {
+                Initialise(nMoveLeft, nMoveIn);
+            }
+        }
+
+        public StraightShape(bool fInitialise, int nMoveLeft)
+        {
+            if (fInitialise)
+            {
+                Initialise(nMoveLeft, 12);
+            }
+        }
+
         public StraightShape(bool fInitialise)
         {
             if (fInitialise)
             {
-                m_ColourFill = Colors.Red;
-
-                m_BlockArray[0] = new UnitBlock
-                                    (
-                                        Dimensions.OuterRadius - Dimensions.SegmentWidth,
-                                        Dimensions.OuterRadius,
-                                        0,
-                                        m_StrokeThickness,
-                                        m_ColourFill,
-                                        m_ColourOutline
-                                    );
-                m_BlockArray[1] = new UnitBlock
-                                    (
-                                        Dimensions.OuterRadius - Dimensions.SegmentWidth,
-                                        Dimensions.OuterRadius,
-                                        Dimensions.BaseUnitBlockAngle * 1.0,
-                                        m_StrokeThickness,
-                                        m_ColourFill,
-                                        m_ColourOutline
-                                    );
-                m_BlockArray[2] = new UnitBlock
-                                    (
-                                        Dimensions.OuterRadius - Dimensions.SegmentWidth,
-                                        Dimensions.OuterRadius,
-                                        Dimensions.BaseUnitBlockAngle * 2.0,
-                                        m_StrokeThickness,
-                                        m_ColourFill,
-                                        m_ColourOutline
-                                    );
-                m_BlockArray[3] = new UnitBlock
-                                    (
-                                        Dimensions.OuterRadius - Dimensions.SegmentWidth,
-                                        Dimensions.OuterRadius,
-                                        Dimensions.BaseUnitBlockAngle * 3.0,
-                                        m_StrokeThickness,
-                                        m_ColourFill,
-                                        m_ColourOutline
-                                    );
-
-                CentreShape(14, 12);
+                Initialise(14, 12);
             }
+        }
+
+        public void Initialise(int nMoveLeft, int nMoveIn)
+        {
+            m_ColourFill = Colors.Red;
+
+            m_BlockArray[0] = new UnitBlock
+                                (
+                                    Dimensions.OuterRadius - Dimensions.SegmentWidth,
+                                    Dimensions.OuterRadius,
+                                    0,
+                                    m_StrokeThickness,
+                                    m_ColourFill,
+                                    m_ColourOutline
+                                );
+            m_BlockArray[1] = new UnitBlock
+                                (
+                                    Dimensions.OuterRadius - Dimensions.SegmentWidth,
+                                    Dimensions.OuterRadius,
+                                    Dimensions.BaseUnitBlockAngle * 1.0,
+                                    m_StrokeThickness,
+                                    m_ColourFill,
+                                    m_ColourOutline
+                                );
+            m_BlockArray[2] = new UnitBlock
+                                (
+                                    Dimensions.OuterRadius - Dimensions.SegmentWidth,
+                                    Dimensions.OuterRadius,
+                                    Dimensions.BaseUnitBlockAngle * 2.0,
+                                    m_StrokeThickness,
+                                    m_ColourFill,
+                                    m_ColourOutline
+                                );
+            m_BlockArray[3] = new UnitBlock
+                                (
+                                    Dimensions.OuterRadius - Dimensions.SegmentWidth,
+                                    Dimensions.OuterRadius,
+                                    Dimensions.BaseUnitBlockAngle * 3.0,
+                                    m_StrokeThickness,
+                                    m_ColourFill,
+                                    m_ColourOutline
+                                );
+
+            CentreShape(nMoveLeft, nMoveIn);
         }
 
         public override BaseShape CopyDerivedShape()

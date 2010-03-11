@@ -13,7 +13,23 @@ namespace Arbaureal.Arcle.Shapes
 {
     public class LeftZigZagShape : BaseShape
     {
-        public LeftZigZagShape(bool fInitialise) 
+
+        public LeftZigZagShape(bool fInitialise, int nMoveLeft, int nMoveIn)
+        {
+            Initialise(fInitialise, nMoveLeft, nMoveIn);
+        }
+
+        public LeftZigZagShape(bool fInitialise, int nMoveLeft)
+        {
+            Initialise(fInitialise, nMoveLeft, 12);
+        }
+
+        public LeftZigZagShape(bool fInitialise)
+        {
+            Initialise(fInitialise, 13, 12);
+        }
+
+        public void Initialise(bool fInitialise, int nMoveLeft, int nMoveIn) 
         {
             if (fInitialise)
             {
@@ -56,7 +72,7 @@ namespace Arbaureal.Arcle.Shapes
                                         m_ColourOutline
                                     );
 
-                CentreShape(13, 12);
+                CentreShape(nMoveLeft, nMoveIn);
             }
         }
 

@@ -13,7 +13,23 @@ namespace Arbaureal.Arcle.Shapes
 {
     public class BoxShape : BaseShape
     {
-        public BoxShape(bool fInitialise) 
+
+        public BoxShape(bool fInitialise, int nMoveLeft, int nMoveIn)
+        {
+            Initialise(fInitialise, nMoveLeft, nMoveIn);
+        }
+
+        public BoxShape(bool fInitialise, int nMoveLeft)
+        {
+            Initialise(fInitialise, nMoveLeft, 12);
+        }
+
+        public BoxShape(bool fInitialise)
+        {
+            Initialise(fInitialise, 13, 12);
+        }
+
+        public void Initialise(bool fInitialise, int nMoveLeft, int nMoveIn) 
         {
             if (fInitialise)
             {
@@ -56,7 +72,7 @@ namespace Arbaureal.Arcle.Shapes
                                         m_ColourOutline
                                     );
 
-                CentreShape(13, 12);
+                CentreShape(nMoveLeft, nMoveIn);
             }
         }
 

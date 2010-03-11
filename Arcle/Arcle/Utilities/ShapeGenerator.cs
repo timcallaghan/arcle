@@ -25,24 +25,25 @@ namespace Arbaureal.Arcle.Utilities
         public static BaseShape GetNextShape()
         {
             int value = m_random.Next(7);
+            int angle = m_random.Next(Dimensions.NumberOfUnitsPerCircle - 1);
             switch (value)
             {
             case 0:
-                return new StraightShape(true);
+                return new StraightShape(true, angle);
             case 1:
-                return new BoxShape(true);
+                return new BoxShape(true, angle);
             case 2:
-                return new TShape(true);
+                return new TShape(true, angle);
             case 3:
-                return new LeftZigZagShape(true);
+                return new LeftZigZagShape(true, angle);
             case 4:
-                return new RightZigZagShape(true);
+                return new RightZigZagShape(true, angle);
             case 5:
-                return new LShape(true);
+                return new LShape(true, angle);
             case 6:
-                return new JShape(true);
+                return new JShape(true, angle);
             default:
-                return new BoxShape(true);
+                return new BoxShape(true, angle);
             }
         }
     }
