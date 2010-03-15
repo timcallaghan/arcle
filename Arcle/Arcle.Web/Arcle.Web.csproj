@@ -8,7 +8,7 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Arcle.Web</RootNamespace>
+    <RootNamespace>Arbaureal.Arcle.Web</RootNamespace>
     <AssemblyName>Arcle.Web</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <SilverlightApplicationList>{FC57C01C-F1F1-4A52-9258-F6415F1FDB3F}|..\Arcle\Arcle.csproj|ClientBin|False</SilverlightApplicationList>
