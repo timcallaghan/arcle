@@ -94,14 +94,16 @@ namespace Arbaureal.Arcle.Shapes
                     startPoint,
                     endPoint
                 );
+
+            InitStoryBoard();
         }
 
-        public void InitStoryBoard(Canvas gameSurface)
+        public void InitStoryBoard()
         {
             m_StoryBoard = new Storyboard();
             m_DoubleAnimation = new DoubleAnimation();
             m_DoubleAnimation.From = 1.0;
-            m_DoubleAnimation.To = 0.1;
+            m_DoubleAnimation.To = 0.5;
             Duration duration = new Duration(new TimeSpan(0, 0, 0, 0, 500));
             m_DoubleAnimation.Duration = duration;
             m_DoubleAnimation.AutoReverse = true;
@@ -112,8 +114,7 @@ namespace Arbaureal.Arcle.Shapes
             m_StoryBoard.Children.Add(m_DoubleAnimation);
             Storyboard.SetTarget(m_DoubleAnimation, this.Content);
             Storyboard.SetTargetProperty(m_DoubleAnimation, new PropertyPath("(Opacity)"));
-
-            gameSurface.Resources.Add(Guid.NewGuid().ToString(), m_StoryBoard);
+            
             m_StoryBoard.Begin();
         }
 
