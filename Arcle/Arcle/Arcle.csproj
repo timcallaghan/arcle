@@ -4,7 +4,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{E9F333AA-E2E2-40AA-9108-F9CD4AF7D0E2}</ProjectGuid>
+    <ProjectGuid>{FC57C01C-F1F1-4A52-9258-F6415F1FDB3F}</ProjectGuid>
     <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -26,8 +26,7 @@
     <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
     <UsePlatformExtensions>false</UsePlatformExtensions>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
-    <LinkedServerProject>
-    </LinkedServerProject>
+    <LinkedServerProject>..\Arcle.Web\Arcle.Web.csproj</LinkedServerProject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,12 +50,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="System.ComponentModel.DataAnnotations, Version=2.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows" />
     <Reference Include="mscorlib" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Ria, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Windows.Browser" />
     <Reference Include="System.Windows.Controls" />
@@ -69,6 +71,9 @@
     <Compile Include="Engine\CompositionTargetGameLoop.cs" />
     <Compile Include="Engine\Game.cs" />
     <Compile Include="Engine\Sounds.cs" />
+    <Compile Include="GameFrame.xaml.cs">
+      <DependentUpon>GameFrame.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Shapes\BaseShape.cs" />
     <Compile Include="Shapes\BoxShape.cs" />
     <Compile Include="Shapes\Dimensions.cs" />
@@ -82,6 +87,7 @@
     <Compile Include="Utilities\GridGenerator.cs" />
     <Compile Include="Utilities\MathHelpers.cs" />
     <Compile Include="Utilities\ShapeGenerator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Credits.xaml.cs">
       <DependentUpon>Credits.xaml</DependentUpon>
     </Compile>
@@ -94,10 +100,6 @@
     <Compile Include="Views\HighScores.xaml.cs">
       <DependentUpon>HighScores.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GameFrame.xaml.cs">
-      <DependentUpon>GameFrame.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\HowToPlay.xaml.cs">
       <DependentUpon>HowToPlay.xaml</DependentUpon>
     </Compile>
@@ -109,58 +111,49 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:MarkupCompilePass1</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
     <Resource Include="Assets\Styles.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Resource>
-    <Page Include="Views\Credits.xaml">
-      <SubType>Designer</SubType>
+    <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
-    </Page>
-    <Page Include="Views\ErrorWindow.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:MarkupCompilePass1</Generator>
-    </Page>
-    <Page Include="Views\Game.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:MarkupCompilePass1</Generator>
-    </Page>
-    <Page Include="Views\HighScores.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:MarkupCompilePass1</Generator>
-    </Page>
+    </ApplicationDefinition>
     <Page Include="GameFrame.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\HowToPlay.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Views\Credits.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ErrorWindow.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Game.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HighScores.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HowToPlay.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Menu.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="YesNoPopup.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\OutOfBrowserSettings.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Sounds\Shift_Rings.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Sounds\main_menu_loop.mp3" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MediaParsers\MediaParsers.csproj">
@@ -173,7 +166,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\OutOfBrowserSettings.xml" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Images\ArcleTile.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Sounds\main_menu_loop.mp3" />
+    <Resource Include="Sounds\Shift_Rings.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\v3.0\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

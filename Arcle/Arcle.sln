@@ -1,7 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arcle", "Arcle\Arcle.csproj", "{E9F333AA-E2E2-40AA-9108-F9CD4AF7D0E2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arcle", "Arcle\Arcle.csproj", "{FC57C01C-F1F1-4A52-9258-F6415F1FDB3F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{696AE7E4-7F1C-4FC3-8B01-F1D2927CABA4} = {696AE7E4-7F1C-4FC3-8B01-F1D2927CABA4}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arcle.Web", "Arcle.Web\Arcle.Web.csproj", "{696AE7E4-7F1C-4FC3-8B01-F1D2927CABA4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaParsers", "MediaParsers\MediaParsers.csproj", "{4354547C-0008-4D2A-8644-F2ACAC9DCC85}"
 EndProject
@@ -17,10 +22,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E9F333AA-E2E2-40AA-9108-F9CD4AF7D0E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E9F333AA-E2E2-40AA-9108-F9CD4AF7D0E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E9F333AA-E2E2-40AA-9108-F9CD4AF7D0E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E9F333AA-E2E2-40AA-9108-F9CD4AF7D0E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC57C01C-F1F1-4A52-9258-F6415F1FDB3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC57C01C-F1F1-4A52-9258-F6415F1FDB3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC57C01C-F1F1-4A52-9258-F6415F1FDB3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC57C01C-F1F1-4A52-9258-F6415F1FDB3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{696AE7E4-7F1C-4FC3-8B01-F1D2927CABA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{696AE7E4-7F1C-4FC3-8B01-F1D2927CABA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{696AE7E4-7F1C-4FC3-8B01-F1D2927CABA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{696AE7E4-7F1C-4FC3-8B01-F1D2927CABA4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4354547C-0008-4D2A-8644-F2ACAC9DCC85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4354547C-0008-4D2A-8644-F2ACAC9DCC85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4354547C-0008-4D2A-8644-F2ACAC9DCC85}.Release|Any CPU.ActiveCfg = Release|Any CPU
