@@ -95,7 +95,7 @@ namespace Arbaureal.Arcle.Shapes
                     endPoint
                 );
 
-            InitStoryBoard();
+            //InitStoryBoard();
         }
 
         public void InitStoryBoard()
