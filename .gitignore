@@ -1,0 +1,25 @@
+
+# /Arcle/
+/Arcle/*.suo
+
+# /Arcle/Arcle/
+/Arcle/Arcle/*.user
+/Arcle/Arcle/Bin
+/Arcle/Arcle/Generated_Code
+/Arcle/Arcle/obj
+
+# /Arcle/Arcle.Web/
+/Arcle/Arcle.Web/Arcle.Web.csproj.user
+/Arcle/Arcle.Web/ClientBin
+/Arcle/Arcle.Web/bin
+/Arcle/Arcle.Web/obj
+
+# /Arcle/MediaParsers/
+/Arcle/MediaParsers/*.user
+/Arcle/MediaParsers/Bin
+/Arcle/MediaParsers/obj
+
+# /Arcle/Mp3MediaStreamSource/
+/Arcle/Mp3MediaStreamSource/*.user
+/Arcle/Mp3MediaStreamSource/Bin
+/Arcle/Mp3MediaStreamSource/obj
