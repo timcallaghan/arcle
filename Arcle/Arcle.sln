@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arcle", "Arcle\Arcle.csproj", "{FC57C01C-F1F1-4A52-9258-F6415F1FDB3F}"
 	ProjectSection(ProjectDependencies) = postProject
 		{696AE7E4-7F1C-4FC3-8B01-F1D2927CABA4} = {696AE7E4-7F1C-4FC3-8B01-F1D2927CABA4}
